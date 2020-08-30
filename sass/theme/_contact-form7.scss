@@ -53,6 +53,20 @@
       @extend .form-group;
     }
 
+    input, textarea {
+      color: black;
+      margin-bottom: 5px;
+      font-size: 18px;
+      height: auto;
+    }
+
+    input[type=submit] {
+      background: $primary;
+      color: white;
+      display: inline-block;
+      width: auto;
+  }
+
     // let labels be 100%
     label {
       width: 100%;
