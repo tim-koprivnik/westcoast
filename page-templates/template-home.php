@@ -277,7 +277,7 @@ if ( is_front_page() ) {
     </div>
 </div>
 
-<div class="home-we-accept">
+<!-- <div class="home-we-accept">
     <div class="container">
         <div class="title-holder Xalign-items-end">
             <h2>We accept the following waste</h2>
@@ -319,7 +319,7 @@ if ( is_front_page() ) {
             <a href="#" class="button button-sm outline">read the full list of acceptable waste</a>
         </div>
     </div>
-</div>
+</div> -->
 
 <?php
 get_footer();

@@ -21,31 +21,48 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="page-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="<?php //echo esc_attr( $container ); ?> container" id="content" tabindex="-1">
 
 		<div class="row">
 
 			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+			<?php // get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
-			<main class="site-main" id="main">
+			<div class="col-lg-7">
+				<main class="site-main" id="main">
 
-				<?php
-				while ( have_posts() ) {
-					the_post();
-					get_template_part( 'loop-templates/content', 'page' );
+					<?php
+					while ( have_posts() ) {
+						the_post();
+						get_template_part( 'loop-templates/content', 'page' );
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
+						// If comments are open or we have at least one comment, load up the comment template.
+						if ( comments_open() || get_comments_number() ) {
+							comments_template();
+						}
 					}
-				}
-				?>
+					?>
 
-			</main><!-- #main -->
+				</main><!-- #main -->
+			</div>
+
+			<div class="offset-lg-1 col-lg-4 col-11">
+				<div class="right-sidebar">
+					<div class="discount-circle">
+						<div class="save">Save</div>
+						<div class="percent">20%</div>
+					</div>
+					<div class="entry-content">
+						<div class="title">15 Day Storm Special on 9m3 Skip Bins</div>
+						<div class="description">BIN Services - Perth, Fermantle, Kwinana, Rockingham, Mandurah, Pinjarra, Waroona, Harvey, Australing, Bunbury, Busseltion, Margaret River</div>
+						<a href="#" class="button outline">Find Out More</a>
+						<a href="#" class="button button-sm outline">Find Out More</a>
+					</div>
+				</div>
+			</div>
 
 			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
+			<?php // get_template_part( 'global-templates/right-sidebar-check' ); ?>
 
 		</div><!-- .row -->
 
