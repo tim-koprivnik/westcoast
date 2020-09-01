@@ -65,12 +65,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<div class="sidebar-blog-categories">
 					<h3>Blog Categories</h3>
 					<ul>
+						<!-- <li>lorem ipsum</li>
 						<li>lorem ipsum</li>
 						<li>lorem ipsum</li>
 						<li>lorem ipsum</li>
 						<li>lorem ipsum</li>
-						<li>lorem ipsum</li>
-						<li>lorem ipsum</li>
+						<li>lorem ipsum</li> -->
+						<?php 
+							$categories = get_categories();
+							foreach($categories as $category) {
+								echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+							}
+						?>
 					</ul>
 				</div>
 			</div>

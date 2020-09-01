@@ -23,6 +23,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<?php get_template_part( 'global-templates/hero' ); ?>
 <?php endif; ?>
 
+<!-- <div class="page-header-holder">
+	<div class="container">
+		<header class="entry-header">
+			<?php // the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header>
+	</div>
+</div> -->
+
 <div class="wrapper" id="index-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">

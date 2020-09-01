@@ -24,8 +24,28 @@ $understrap_includes = array(
 	'/woocommerce.php',                     // Load WooCommerce functions.
 	'/editor.php',                          // Load Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
+	'/wordpress-dev-snippets.php'           // Custom functions
 );
 
 foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
+// NOT WORKING
+// function the_post_summary($length = 128, $string = '') {
+//     if ($string) {
+//         $content = $string;
+//     } else {
+//         $content = wp_strip_all_tags( get_the_content() );
+//     }
+//     if (strlen($content) > $length) {
+//         $content = substr($content, 0, $length) . '...';
+//     }
+//     echo $content;
+// }
+
+
+function my_excerpt_length($length) {
+	return 20;
+}
+add_filter('excerpt_length', 'my_excerpt_length');

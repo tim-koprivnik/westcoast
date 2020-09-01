@@ -22,46 +22,68 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<div class="row">
 
 			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
+			<?php // get_template_part( 'global-templates/left-sidebar-check' ); ?>
 
-			<main class="site-main" id="main">
+			<div class="col-lg-7">
+				<main class="site-main" id="main">
 
-				<?php
-				if ( have_posts() ) {
-					?>
-					<header class="page-header">
-						<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="taxonomy-description">', '</div>' );
-						?>
-					</header><!-- .page-header -->
 					<?php
-					// Start the loop.
-					while ( have_posts() ) {
-						the_post();
+					if ( have_posts() ) {
+					?>
+						<header class="page-header">
+							<h1>Recent Blog Posts</h1>
+							<?php
+							//the_archive_title( '<h1 class="page-title">', '</h1>' );
+							// the_archive_description( '<div class="taxonomy-description">', '</div>' );
+							?>
+						</header>
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'loop-templates/content', get_post_format() );
-					}
-				} else {
-					get_template_part( 'loop-templates/content', 'none' );
-				}
-				?>
+						<div class="row">
+							<?php
+							// Start the loop.
+							while ( have_posts() ) {
+							?>
+							<div class="col-lg-6">
+							<?php 
+								the_post(); 
+								get_template_part( 'loop-templates/content', get_post_format() );
+							?>
+							</div>
+							<?php
+							}
+							} else {
+								get_template_part( 'loop-templates/content', 'none' );
+							}
+							?>
+						</div>
 
-			</main><!-- #main -->
+				</main><!-- #main -->
+			</div>
+			
+			<div class="offset-lg-1 col-lg-4 col-11">
+				<div class="sidebar-blog-categories">
+					<h3>Blog Categories</h3>
+					<ul>
+						<?php 
+							$categories = get_categories();
+							foreach($categories as $category) {
+								echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+							}
+						?>
+					</ul>
+				</div>
+			</div>
 
+		</div><!-- .row -->
+
+		<div class="post-navigation-options">
 			<?php
 			// Display the pagination component.
 			understrap_pagination();
 			// Do the right sidebar check.
 			get_template_part( 'global-templates/right-sidebar-check' );
 			?>
-
-		</div><!-- .row -->
+		</div>
 
 	</div><!-- #content -->
 

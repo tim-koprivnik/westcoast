@@ -9,6 +9,14 @@ body {
     // min-height: 8000px;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+        color: $primary;
+    }
+}
+
 .button {
     display: inline-block;
     color: white;
@@ -123,6 +131,10 @@ body {
                 border-radius: 1.5em;
                 font-size: 20px;
                 margin-left: 1em;
+                text-decoration: none;
+                &:hover {
+                    color: $primary;
+                }
                 @media (max-width: $md) {
                     margin-left: 0em;
                 }
@@ -620,6 +632,7 @@ body {
         background: $primary;
         padding-top: 75px;
         padding-bottom: 75px;
+        margin-top: 50px;
         color: $secondary;
         @media (max-width: $md) {
             text-align: center;
@@ -858,8 +871,8 @@ body {
     }
 }
 
-// Pages & Posts
-#page-wrapper, #single-wrapper {
+// Page & Post & (part of) Contact Page & Blog (archive)
+#page-wrapper, #single-wrapper, #index-wrapper, #archive-wrapper, #error-404-wrapper, #search-wrapper {
     overflow: hidden;
     .entry-header {
         margin-top: 75px;
@@ -874,6 +887,14 @@ body {
     .entry-title {
         color: $primary;
         font-weight: 300;
+        a {
+            color: $primary;
+            text-decoration: none;
+            &:hover {
+                // color: white;
+                font-weight: bold;
+            }
+        }
     }
     .entry-content {
         h2 {
@@ -914,6 +935,125 @@ body {
         }
         img {
             border-radius: 30px;
+        }
+    }
+    .post-navigation-options {
+        border-top: 4px dashed $primary;
+        margin-top: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @media (max-width: $lg) {
+            margin-top: 25px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+        a {
+            display: inline-block;
+            color: white;
+            border: 1px solid $primary;
+            padding: 0.5em 1em;
+            border-radius: 1em;
+            font-size: 20px;
+            transition: ease 0.25s all;
+            text-align: center;
+            text-transform: capitalize;
+            background: transparent;
+            text-decoration: none;
+            &:hover {
+                background: $secondary;
+                color: $primary;
+            }
+            @media (max-width: $xl) {
+                font-size: 18px;
+            }
+        }
+    }
+    &#single-wrapper {
+        .entry-content {
+            margin-top: 50px;
+        }
+    }
+    &#archive-wrapper {
+        .entry-header {
+            margin-top: 25px;
+        }
+        article {
+            background: white;
+            border-radius: 15px;
+            color: $secondary;
+            padding-bottom: 10px;
+            min-height: 500px;
+            @media (max-width: $lg) {
+                min-height: 400px;
+            }
+            .archive-post-image {
+                height: 200px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                // background-position: center;
+                background-image: url('../img/slider-1.png');
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+            .entry-title {
+                margin-top: 30px;
+                color: $secondary;
+                font-weight: bold;
+                font-size: 30px;
+                padding: 0 30px;
+                a {
+                    color: $secondary;
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+            .entry-content {
+                padding: 0 30px;
+                font-weight: 300;
+                line-height: 1.15;
+                .entry-metadata {
+                    margin-top: 15px;
+                    // display: flex;
+                    .button {
+                        padding: 0.5em 1em;
+                        font-size: 14px;
+                        background: transparent;
+                        color: $secondary;
+                        border: 1px solid $secondary;
+                        &:hover {
+                            background: $secondary;
+                            color: $primary;
+                            border: 1px solid $primary;
+                        }
+                        @media (max-width: $lg) {
+                            display: block;
+                        }
+                        @media (max-width: $sm) {
+                            padding: 0.5em 0.5em;
+                        }
+                    }
+                    .date {
+                        font-size: 14px;
+                        text-align: right;
+                        i {
+                            color: $primary;
+                            margin-right: 0.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .page-header {
+        margin-top: 75px;
+        h1 {
+            font-size: 48px;
+            color: $primary;
+            font-weight: 300;
+            @media (max-width: $sm) {
+                font-size: 36px;
+            }
         }
     }
 }
@@ -1001,43 +1141,6 @@ body {
     }
 }
 
-#single-wrapper {
-    .entry-content {
-        margin-top: 50px;
-    }
-    .post-navigation-options {
-        border-top: 4px dashed $primary;
-        margin-top: 50px;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        @media (max-width: $lg) {
-            margin-top: 25px;
-            padding-top: 25px;
-            padding-bottom: 25px;
-        }
-        a {
-            display: inline-block;
-            color: white;
-            border: 1px solid $primary;
-            padding: 0.5em 1em;
-            border-radius: 1em;
-            font-size: 20px;
-            transition: ease 0.25s all;
-            text-align: center;
-            text-transform: capitalize;
-            background: transparent;
-            text-decoration: none;
-            &:hover {
-                background: $secondary;
-                color: $primary;
-            }
-            @media (max-width: $xl) {
-                font-size: 18px;
-            }
-        }
-    }
-}
-
 // Sidebar Blog Categories
 .sidebar-blog-categories {
     margin-top: 150px;
@@ -1078,4 +1181,97 @@ body {
     }
 }
 
+// Contact Us Page
+.contact-us {
+    font-size: 20px;
+    i {
+        color: $primary;
+        min-width: 30px;
+    }
+    a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+            color: $primary;
+        }
+    }
+    .wpcf7 {
+        margin: 0;
+        margin-top: 50px;
+        // margin-bottom: 50px;
+        .wpcf7-form {
+            background: $primary;
+            border-radius: 15px;
+            h3 {
+                color: $secondary;
+                margin-bottom: 1em;
+                // font-size: 30px;
+            }
+            input[type=submit] {
+                background: $secondary;
+                color: white;
+                display: inline-block;
+                width: auto;
+            }
+        }
+    }
+    .iframe-holder {
+        position: relative;
+        height: 250px;
+        margin-bottom: 50px;
+        iframe {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 15px;
+        }
+        &:first-child {
+            margin-top: 125px;
+            @media (max-width: $lg) {
+                margin-top: 50px;
+            }
+        }
+    }
+}
 
+// Pagination
+.pagination {
+    justify-content: center;
+    .page-item {
+        margin-left: 5px;
+        margin-right: 5px;
+        &:first-child {
+            .page-link {
+              margin-left: 0;
+              @include border-left-radius($border-radius);
+            }
+          }
+        &:last-child {
+            .page-link {
+                @include border-right-radius($border-radius);
+            }
+        }   
+        &.active {
+            .page-link {
+                z-index: 3;
+                border-color: $pagination-active-border-color;
+                border-radius: 35%;
+                border: 1px solid white;
+                padding: .5em 1em;
+                border-radius: 1em;
+                color: $primary;
+                background-color: black;
+                font-size: 20px;
+                // cursor: pointer;
+                &:hover {
+                    color: $primary;
+                }
+                @media (max-width: $xl) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
