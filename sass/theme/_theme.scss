@@ -871,8 +871,9 @@ a {
     }
 }
 
-// Page & Post & (part of) Contact Page & Blog (archive)
-#page-wrapper, #single-wrapper, #index-wrapper, #archive-wrapper, #error-404-wrapper, #search-wrapper {
+// Page & Post & (part of) Contact Page & Blog (archive) & WooCommerce
+#page-wrapper, #single-wrapper, #index-wrapper, #archive-wrapper, #error-404-wrapper, #search-wrapper, #woocommerce-wrapper {
+// #main {
     overflow: hidden;
     .entry-header {
         margin-top: 75px;
@@ -1053,6 +1054,207 @@ a {
             font-weight: 300;
             @media (max-width: $sm) {
                 font-size: 36px;
+            }
+        }
+    }
+    &#woocommerce-wrapper {
+        .woocommerce-breadcrumb {
+            margin-top: 50px;
+        }
+        .entry-summary, .woocommerce-tabs {
+            .product-single-dimensions {
+                font-weight: 300;
+                margin-top: 1em;
+                margin-bottom: 1em;
+                strong {
+                    font-weight: bold;
+                }
+            }
+            .product-single-sizing {
+                margin-bottom: 30px;
+                margin-top: 30px;
+                .circle {
+                    width: 100%;
+                    padding-top: 100%;
+                    background: $primary;
+                    border-radius: 50%;
+                    position: relative;
+                    .content-holder {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);  
+                        font-size: 14px;
+                        font-weight: bold;
+                        text-align: center;
+                        color: $secondary;
+                        @media (max-width: $xl) {
+                            font-size: 12px;
+                        }
+                        @media (max-width: $md) {
+                            font-size: 16px;
+                        }
+                        @media (max-width: 390px) {
+                            font-size: 12px;
+                        }
+                        .icon {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+            // .price {
+            //     display: none;
+            // }
+            .wc-tabs {
+                display: none;
+            }
+            h2 {
+                margin-bottom: 25px;
+                font-size: 30px;
+                @media (max-width: $sm) {
+                    font-size: 30px;
+                }
+            }
+            h3 {
+                color: $primary;
+                font-size: 22px;
+            }
+            p {
+                font-size: 18px;
+            }
+            ul {
+                margin-bottom: 30px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                // line-height: 1.15;
+                @media (max-width: $xl) {
+                    margin-bottom: 30px;
+                }
+                li {
+                    margin: 0;
+                    padding: 0;
+                    font-weight: 300;
+                    font-size: 16px;
+                    &:last-child {
+                        margin-bottom:30px;
+                    }
+                    &::before {
+                        content: "\f0a9";
+                        display: inline-block;
+                        font-family: FontAwesome;
+                        margin-right: 0.5em;
+                        color: $primary;
+                    }
+                }
+            }
+            img {
+                border-radius: 30px;
+            }
+        }
+        .woocommerce-product-gallery__wrapper {
+            .woocommerce-product-gallery__image {
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;   
+            }
+        }
+        .product-image-instant-quote-holder {
+            background: $secondary-300;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            padding: 30px;
+            // height: 450px;
+            @media (max-width: $sm) {
+                padding: 15px;
+                // height: 470px;
+            }
+            .title {
+                color: $primary;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            .description {
+                margin-top: 20px;
+                font-weight: 300;
+            }
+            .product-price {
+                background: $secondary-500;
+                padding: 10px 20px;
+                border: 4px dashed $primary;
+                border-radius: 15px;
+                margin-top: 20px;
+                font-size: 36px;
+                font-weight: bold;
+                color: white;
+                @media (max-width: $sm) {
+                    font-size: 30px;
+                }
+                .inc-gst {
+                    font-size: 14px;
+                    display: inline-block;
+                    font-weight: 500;
+                }
+            }
+            .reset_variations {
+                color: $primary;
+                text-decoration: none;
+                &:hover {
+                    color: white;
+                }
+            }
+            .single_add_to_cart_button {
+                background: $primary;
+                color: $secondary;
+                font-size: 24px;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-radius: 0px;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                text-align: center;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: translate(40%);
+                &:hover {
+                    background: $secondary;
+                    color: white;
+                    border-top: 1px solid $primary;
+                }
+            }
+        }
+        .hide-right-side-variations {
+            display: none;
+        }
+        .woocommerce-variation-price {
+            position: relative;
+            z-index: 500;
+            background: $secondary-500;
+            padding: 10px 20px;
+            border: 4px dashed $primary;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+            .price {
+                color: white;
+                @media (max-width: $sm) {
+                    font-size: 30px;
+                }
+            }
+            .inc-gst {
+                font-size: 14px;
+                display: inline-block;
+                font-weight: 500;
+            }
+        }
+        .woocommerce-tabs {
+            p {
+                font-weight: 300;
             }
         }
     }

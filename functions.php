@@ -31,7 +31,8 @@ foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
 
-// NOT WORKING
+
+
 // function the_post_summary($length = 128, $string = '') {
 //     if ($string) {
 //         $content = $string;
@@ -44,8 +45,26 @@ foreach ( $understrap_includes as $file ) {
 //     echo $content;
 // }
 
-
 function my_excerpt_length($length) {
 	return 20;
 }
 add_filter('excerpt_length', 'my_excerpt_length');
+
+// remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+// function woocommerce_custom_add_to_cart_text() {
+// 	return __('order this skip bin', 'woocommerce');
+// }
+
+// To change add to cart text on single product page
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_single_add_to_cart_text' ); 
+function woocommerce_custom_single_add_to_cart_text() {
+    return __( 'Order this Skip Bin', 'woocommerce' ); 
+}
+
+// To change add to cart text on product archives(Collection) page
+// add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );  
+// function woocommerce_custom_product_add_to_cart_text() {
+//     return __( 'Buy Now', 'woocommerce' );
+// }
