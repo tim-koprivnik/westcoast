@@ -59,9 +59,11 @@ $wrapper_classes   = apply_filters(
 			Please fill in your suburb and days you'd like to to hire the skip-bin and you will be provided with an instant quote on this product.
 		</div>
 
-		<div Xclass="product-price">
+		<input type="text" id="single-product-autocomplete" placeholder="Suburb or Postcode" />
+
+		<!-- <div class="product-price"> -->
 			<?php // echo $product->get_price_html(); ?> <div class="inc-gst">  </div> <!-- inc. GST -->
-		</div>
+		<!-- </div> -->
 
 		<?php
 		$available_variations = $product->get_available_variations();

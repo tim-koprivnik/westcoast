@@ -33,7 +33,7 @@ if ( ! $short_description ) {
 </div>
 
 
-<!-- Tabs -->
+<!-- Added Tabs in this section -->
 <?php
 $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 

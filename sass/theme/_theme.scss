@@ -17,6 +17,10 @@ a {
     }
 }
 
+::placeholder {
+    color: $secondary;
+}
+
 .button {
     display: inline-block;
     color: white;
@@ -66,6 +70,10 @@ a {
         margin-top: 30px;
     }
 }
+
+// ::placeholder {
+//     color: $secondary;
+//  }
 
 // Header
 #wrapper-navbar {
@@ -1163,7 +1171,9 @@ a {
             background: $secondary-300;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
+            position: relative;
             padding: 30px;
+            margin-bottom: 50px;
             // height: 450px;
             @media (max-width: $sm) {
                 padding: 15px;
@@ -1213,16 +1223,31 @@ a {
                 border-top-left-radius: 15px;
                 border-top-right-radius: 15px;
                 text-align: center;
-                display: block;
                 position: absolute;
                 bottom: 0;
-                left: 0;
-                transform: translate(40%);
+                width: 90%;
+                left: 5%;
+                overflow: hidden !important;
                 &:hover {
                     background: $secondary;
-                    color: white;
-                    border-top: 1px solid $primary;
                 }
+                @media (max-width: $sm) {
+                    font-size: 18px;
+                }
+            }
+            #single-product-autocomplete {
+                width: 100% !important;
+                padding: 0.5em;
+                font-size: 18px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                // &::before {
+                //     content: "\f124";
+                //     display: inline-block;
+                //     font-family: FontAwesome;
+                //     margin-right: 0.5em;
+                //     color: $secondary;
+                // }
             }
         }
         .hide-right-side-variations {
@@ -1255,6 +1280,30 @@ a {
         .woocommerce-tabs {
             p {
                 font-weight: 300;
+            }
+        }
+        .products {
+            h2 {
+                color: $primary;
+                text-align: left;
+            }
+            img {
+                border-radius: 30px;
+            }
+            .price {
+                display: none;
+            }
+        }
+        .related-products-title {
+            transform: translate(-530px, 40px);
+            @media (max-width: $xl) {
+                transform: translate(-445px, 0px);
+            }
+            @media (max-width: $lg) {
+                transform: translate(0px, 60px);
+            }
+            @media (max-width: $md) {
+                transform: translate(0px, 0px);
             }
         }
     }

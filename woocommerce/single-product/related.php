@@ -28,8 +28,11 @@ if ( $related_products ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h2><?php // echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
+
+		<h2 class="related-products-title">Related Products</h2>
+		
 		
 		<?php woocommerce_product_loop_start(); ?>
 

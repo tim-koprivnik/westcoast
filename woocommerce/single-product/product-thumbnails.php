@@ -32,6 +32,4 @@ if ( $attachment_ids && $product->get_image_id() ) {
 	}
 }
 
-?>
-
 

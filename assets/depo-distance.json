@@ -1,0 +1,62 @@
+[
+  {
+    "Suburb": "Barragup",
+    "Post Code": 6210,
+    "Depo": "Pinjarra",
+    "Distance": 12.2
+  },
+  {
+    "Suburb": "Birchmon",
+    "Post Code": 6214,
+    "Depo": "Pinjarra",
+    "Distance": 20.6
+  },
+  {
+    "Suburb": "Coodanup",
+    "Post Code": 6210,
+    "Depo": "Pinjarra",
+    "Distance": 17.5
+  },
+  {
+    "Suburb": "Australind",
+    "Post Code": 6233,
+    "Depo": "Australind",
+    "Distance": 135
+  },
+  {
+    "Suburb": "Beela",
+    "Post Code": 6224,
+    "Depo": "Australind",
+    "Distance": 102
+  },
+  {
+    "Suburb": "Forrest Beach",
+    "Post Code": 6271,
+    "Depo": "Australind",
+    "Distance": 78
+  },
+  {
+    "Suburb": "Gelorup",
+    "Post Code": 6230,
+    "Depo": "Australind",
+    "Distance": 29.2
+  },
+  {
+    "Suburb": "Wonnerup",
+    "Post Code": 6280,
+    "Depo": "Vasse",
+    "Distance": 52
+  },
+  {
+    "Suburb": "Yallingup",
+    "Post Code": 6282,
+    "Depo": "Vasse",
+    "Distance": 7.2
+  },
+  {
+    "Suburb": "Yelverton",
+    "Post Code": 6280,
+    "Depo": "Vasse",
+    "Distance": 89.3
+  }
+]

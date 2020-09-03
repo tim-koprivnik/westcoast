@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="product-single-sizing">
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-4 col-6">
 			<div class="circle">
 				<div class="content-holder">
 					Approx x <?php the_field('approx_trailer'); ?> trailers
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4">
+		<div class="col-lg-4 col-6">
 			<div class="circle">
 				<div class="content-holder">
 					Approx x <?php the_field('approx_bin'); ?> wheelie bins
