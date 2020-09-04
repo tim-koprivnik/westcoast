@@ -37,7 +37,7 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/js/custom.js', array(), '1.0.1', true );
 
 		wp_enqueue_style( 'easy-autocomplete-css', get_stylesheet_directory_uri() . '/css/easy-autocomplete.css' );
-		wp_enqueue_style( 'easy-autocomplete-themes-css', get_stylesheet_directory_uri() . '/css/easy-autocomplete.themes.css' );
+		// wp_enqueue_style( 'easy-autocomplete-themes-css', get_stylesheet_directory_uri() . '/css/easy-autocomplete.themes.css' );
 		wp_enqueue_script( 'easy-autocomplete-js', get_template_directory_uri() . '/js/wp-jquery.easy-autocomplete.js', array(), '1.0.0', true );
 	}
 } // End of if function_exists( 'understrap_scripts' ).

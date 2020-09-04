@@ -27,6 +27,29 @@ jQuery(document).ready(function ($) {
     };
 
     $('#single-product-autocomplete').easyAutocomplete(options);
+
+
+    $( ".variations_form" ).on( "woocommerce_variation_select_change", function () {
+      // Fires whenever variation selects are changed
+      $('#single-product-placeholder').show(0);
+    } );
+
+    $( ".single_variation_wrap" ).on( "show_variation", function ( event, variation ) {
+      // Fired when the user selects all the required dropdowns / attributes
+      // and a final variation is selected / shown
+      $('#single-product-placeholder').hide(0);
+    } );
+    
+
+    // NOT WORKING
+    // function removeBorderBottom() {
+    //   var input = document.querySelector('input');
+
+    //   if (input.value != empty) { 
+    //     input.classList.add('active-input'); 
+    //   }
+    // }
+
 });
 
 // wow = new WOW(

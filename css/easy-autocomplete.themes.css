@@ -175,6 +175,7 @@
 }
 .easy-autocomplete.eac-plate-dark {
   font-family: "Open Sans", "Helvetica Neue",Helvetica,Arial,sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
 }
 .easy-autocomplete.eac-plate-dark input {
   font-size: 13px;
@@ -182,6 +183,7 @@
 }
 .easy-autocomplete.eac-plate-dark ul {
   background: #212121;
+  /* background: white !important; */
   border-radius: 6px;
   border-width: 0;
   top: 10px;

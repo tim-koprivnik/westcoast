@@ -68,3 +68,7 @@ function woocommerce_custom_single_add_to_cart_text() {
 // function woocommerce_custom_product_add_to_cart_text() {
 //     return __( 'Buy Now', 'woocommerce' );
 // }
+
+
+// Remove "Read More" button and "[...]" from the excerpt
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');

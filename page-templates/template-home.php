@@ -92,19 +92,37 @@ if ( is_front_page() ) {
         <div class="container">
             <h2><i class="fa fa-arrow-circle-down"></i> Select the right skip bin for your project</h2>
             <div class="home-bins">
+
+            <?php
+                $args = array(
+                    'post_type' => 'product',
+                    'orderby' => 'title',
+                    'order' => 'ASC',
+                    'product_cat' => 'Bin',
+                    'posts_per_page' => 5,
+                );
+                $index = 0;
+                $loop = new WP_Query( $args );
+                while ( $loop->have_posts() ) : $loop->the_post(); global $product;
+                $index++;
+            ?>
+
+            <a href="<?php the_permalink(); ?>">
                 <div class="home-bin">
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/product-placeholder.png" alt="product placeholder" width="100%" class="bin-img">
+                            <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' ); ?>
+                            <img src="<?php echo $image[0]; ?>" class="bin-img">
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="title">4 Cubic Metre Skip</div>
-                            <ul>
+                            <div class="title"><?php the_field('full_title'); ?></div>
+                            <?php the_excerpt(); ?><br>
+                            <!-- <ul>
                                 <li>Garden & Household clean-up</li>
                                 <li>Heavy Loads (dirt, concrete, bricks or rubble)</li>
                                 <li>Ideal for narrow alleys or small streets</li>
                                 <li>Building Sites</li>
-                            </ul>
+                            </ul> -->
                         </div>
                         <div class="col-lg-4 col-md-12">
                             <div class="home-skip-circles">
@@ -112,7 +130,7 @@ if ( is_front_page() ) {
                                     <div class="offset-lg-0 col-lg-6 offset-md-2 col-md-4 offset-sm-0 col-sm-6 col-6">
                                         <div class="circle first">
                                             <div class="content-holder">
-                                                Approx x 4 trailers
+                                                Approx x <?php the_field('approx_trailer'); ?> trailers
                                                 <div class="icon">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/home-trailer.png" alt="home-trailer">
                                                 </div>
@@ -122,7 +140,7 @@ if ( is_front_page() ) {
                                     <div class="col-lg-6 col-md-4 col-sm-6 col-6">
                                         <div class="circle second">
                                             <div class="content-holder">
-                                                Approx x 16 wheelie bins
+                                                Approx x <?php the_field('approx_bin'); ?> wheelie bins
                                                 <div class="icon">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/home-bin.png" alt="home-bin">
                                                 </div>
@@ -137,7 +155,11 @@ if ( is_front_page() ) {
                         Get a quote for this skip
                     </a>
                 </div>
-                <div class="home-bin">
+            </a>
+            <?php endwhile; ?>
+            <?php wp_reset_query(); ?>
+            
+                <!-- <div class="home-bin">
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/img/6m3-Skip-Bin.png" alt="product placeholder" width="100%" class="bin-img">
@@ -188,7 +210,7 @@ if ( is_front_page() ) {
                             <img src="<?php echo get_template_directory_uri(); ?>/img/9m3-Skip-Bin.png" alt="product placeholder" width="100%" class="bin-img">
                         </div>
                         <div class="col-lg-4 col-md-6">
-                            <div class="title">9 Cubic Metre Skip</div>
+                            <div class="title">10 Cubic Metre Skip</div>
                             <ul>
                                 <li>Garden & Household clean-up</li>
                                 <li>Heavy Loads (dirt, concrete, bricks or rubble)</li>
@@ -236,8 +258,7 @@ if ( is_front_page() ) {
                             <div class="title">15m3 Hook Lift Bin</div>
                             <ul>
                                 <li>Garden & Household clean-up</li>
-                                <li>Heavy Loads (dirt, concrete, bricks or rubble)</li>
-                                <li>Ideal for narrow alleys or small streets</li>
+                                <li>Shop fit outs, Bulky materials etc</li>
                                 <li>Building Sites</li>
                             </ul>
                         </div>
@@ -257,7 +278,7 @@ if ( is_front_page() ) {
                                     <div class="col-lg-6 col-md-4 col-sm-6 col-6">
                                         <div class="circle second">
                                             <div class="content-holder">
-                                                Approx x 64 wheelie bins
+                                                Approx x 60 wheelie bins
                                                 <div class="icon">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/home-bin.png" alt="home-bin">
                                                 </div>
@@ -272,12 +293,56 @@ if ( is_front_page() ) {
                         Get a quote for this skip
                     </a>
                 </div>
+                <div class="home-bin">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/15m3-Skip-Bin.png" alt="product placeholder" width="100%" class="bin-img">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="title">30m3 Hook Lift Bin</div>
+                            <ul>
+                                <li>Garden & Household clean-up</li>
+                                <li>Shop fit outs, Bulky materials etc</li>
+                                <li>Building Sites</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-12">
+                            <div class="home-skip-circles">
+                                <div class="row">
+                                    <div class="offset-lg-0 col-lg-6 offset-md-2 col-md-4 offset-sm-0 col-sm-6 col-6">
+                                        <div class="circle first">
+                                            <div class="content-holder">
+                                                Approx x 30 trailers
+                                                <div class="icon">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/home-trailer.png" alt="home-trailer">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
+                                        <div class="circle second">
+                                            <div class="content-holder">
+                                                Approx x 120 wheelie bins
+                                                <div class="icon">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/home-bin.png" alt="home-bin">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="abs-holder-button">
+                        Get a quote for this skip
+                    </a>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
 
-<!-- <div class="home-we-accept">
+<div class="home-we-accept">
     <div class="container">
         <div class="title-holder Xalign-items-end">
             <h2>We accept the following waste</h2>
@@ -319,7 +384,7 @@ if ( is_front_page() ) {
             <a href="#" class="button button-sm outline">read the full list of acceptable waste</a>
         </div>
     </div>
-</div> -->
+</div>
 
 <?php
 get_footer();

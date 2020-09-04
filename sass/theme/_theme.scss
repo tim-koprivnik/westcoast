@@ -504,6 +504,7 @@ a {
     .home-select-bin {
         color: $secondary;
         margin-top: 100px;
+        margin-bottom: 0px;
         position: relative;
         h2 {
             font-size: 48px;
@@ -517,6 +518,10 @@ a {
             }
         }
         .home-bins {
+            a {
+                color: $secondary;
+                text-decoration: none;
+            }
             .home-bin {
                 background: white;
                 border-radius: 15px;
@@ -634,57 +639,58 @@ a {
     }
 }
 
-// Footer
-#wrapper-footer {
-    .footer-we-accept {
-        background: $primary;
-        padding-top: 75px;
-        padding-bottom: 75px;
-        margin-top: 50px;
+.home-we-accept {
+    background: $primary;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    margin-top: 0px;
+    color: $secondary;
+    @media (max-width: $md) {
+        text-align: center;
+    }
+    .title-holder {
+        display: flex;
         color: $secondary;
-        @media (max-width: $md) {
-            text-align: center;
-        }
-        .title-holder {
-            display: flex;
-            color: $secondary;
-            margin-bottom: 50px;
-            align-items: flex-end;
-            h2 {
-                flex: 1;
-                font-size: 48px;
-                font-weight: bold;
-                @media (max-width: $xl) {
-                    font-size: 30px;
-                }
-            }
-        }
-        .title {
-            text-align: center;
+        margin-bottom: 50px;
+        align-items: flex-end;
+        h2 {
+            flex: 1;
+            font-size: 48px;
             font-weight: bold;
-            margin-top: 25px;
-            @media (max-width: $lg) {
-                margin-right: 40px;
-                margin-bottom: 25px;
+            @media (max-width: $xl) {
+                font-size: 30px;
             }
-            @media (max-width: $md) {
-                margin-right: 0px;
-                margin-bottom: 25px;
-            }
-        }
-        .button {
-            @media (max-width: $lg) {
-                text-align: center;
-                margin: 0 auto;
-                margin-top: 25px;
-                width: 60%;
-            }
-            // @media (max-width: $md) {
-            //     // width: 75%;
-            //     // padding: 0.5em;
-            // }
         }
     }
+    .title {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 25px;
+        @media (max-width: $lg) {
+            margin-right: 40px;
+            margin-bottom: 25px;
+        }
+        @media (max-width: $md) {
+            margin-right: 0px;
+            margin-bottom: 25px;
+        }
+    }
+    .button {
+        @media (max-width: $lg) {
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 25px;
+            width: 60%;
+        }
+        // @media (max-width: $md) {
+        //     // width: 75%;
+        //     // padding: 0.5em;
+        // }
+    }
+}
+
+// Footer
+#wrapper-footer {
     .footer-testimonial-holder {
         padding-top: 50px;
         .testimonial {
@@ -877,6 +883,10 @@ a {
             width: 100%;
         }
     }
+}
+
+.easy-autocomplete.eac-plate-dark {
+    font-family: "Roboto" !important;
 }
 
 // Page & Post & (part of) Contact Page & Blog (archive) & WooCommerce
@@ -1173,11 +1183,8 @@ a {
             border-bottom-right-radius: 30px;
             position: relative;
             padding: 30px;
-            // margin-bottom: 50px;
-            // height: 450px;
             @media (max-width: $sm) {
                 padding: 15px;
-                // height: 470px;
             }
             .title {
                 color: $primary;
@@ -1234,38 +1241,70 @@ a {
                 overflow: hidden !important;
                 &:hover {
                     background: $secondary;
+                    color: white;
                 }
                 @media (max-width: $sm) {
                     font-size: 18px;
                 }
             }
-            // .cart { // variations cart
-            //     padding-left: 30px;
-            //     padding-right: 30px;
-            // }
             .single-product-autocomplete-holder {
-                // padding-left: 30px;
-                // padding-right: 30px;
-                #single-product-autocomplete {
+                // display: flex;
+                position: relative;
+                .active-input {
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                }
+                .fa {
+                    color: $secondary;
+                    position: absolute;
+                    z-index: 500;
+                    top: 25px;
+                    left: 10px;
+                }
+                input {
                     width: 100% !important;
                     padding: 0.5em;
+                    padding-left: 35px;
                     font-size: 18px;
                     margin-top: 10px;
                     margin-bottom: 10px;
-                    // &::before {
-                    //     content: "\f124";
-                    //     display: inline-block;
-                    //     font-family: FontAwesome;
-                    //     margin-right: 0.5em;
-                    //     color: $secondary;
-                    // }
+                    border-radius: 15px;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                .easy-autocomplete-container {
+                    // top: 57px;
+                    margin-top: -10px;
+                    z-index: 501;
+                    position: relative;
+                    ul {
+                        border-top: 0px;
+                        background: white;
+                        border-bottom-left-radius: 15px;
+                        border-bottom-right-radius: 15px;
+                        overflow: hidden;
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                        color: $secondary;
+                        li {
+                            color: $secondary;
+                            border-bottom: 1px solid rgba(0,0,0,.1);
+                            font-size: 18px;
+                            &:hover {
+                                background: rgba(0,0,0,.1);
+                                text-decoration: underline;
+                            }
+                        }
+                    }
                 }
             }
         }
         .hide-right-side-variations {
             display: none;
         }
-        .woocommerce-variation-price {
+        .woocommerce-variation-price, .product-price-holder {
             position: relative;
             z-index: 500;
             background: $secondary-500;
@@ -1298,6 +1337,7 @@ a {
             h2 {
                 color: $primary;
                 text-align: left;
+                clear: both; // !!! //
             }
             img {
                 border-radius: 30px;
@@ -1306,18 +1346,13 @@ a {
                 display: none;
             }
         }
-        // .related-products-title {
-        //     transform: translate(-530px, 40px);
-        //     @media (max-width: $xl) {
-        //         transform: translate(-445px, 0px);
-        //     }
-        //     @media (max-width: $lg) {
-        //         transform: translate(0px, 60px);
-        //     }
-        //     @media (max-width: $md) {
-        //         transform: translate(0px, 0px);
-        //     }
-        // }
+        .woocommerce-products-header {
+            h1 {
+                color: $primary;
+                font-size: 48px;
+                font-weight: 300;
+            }
+        }
     }
 }
 
