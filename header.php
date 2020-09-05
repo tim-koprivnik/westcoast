@@ -61,7 +61,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<div class="search-input-holder">
 					<div class="title">Quote: </div>
-					<input type="text" placeholder="Type Suburb or Postcode" id="header-product-autocomplete">
+					<input type="text" placeholder="Type Suburb or Postcode" id="header-product-autocomplete"> 
+					<div id="search-input-reset">
+						<i class="fa fa-times"></i>
+					</div>
 				</div>
 			
 				<div class="mobile-menu-dropdown">

@@ -30,6 +30,26 @@ jQuery(document).ready(function ($) {
     $('#header-product-autocomplete').easyAutocomplete(options);
 
 
+    // On click in easyAutocomplete dropdown, do ...
+    $('.easy-autocomplete-container').on('click', function() {
+      if ($('#quick-select-bins').css('display', 'none')) {
+        $('#quick-select-bins').css('display', 'block');
+        $('.overlay-image-arrow').hide();
+      } else {
+        $('#quick-select-bins').css('display', 'none');
+      }
+    });
+
+
+    // On X click in search, do ...
+    $('#search-input-reset').on('click', function () {
+      $('#quick-select-bins').hide();
+      $('.overlay-image-arrow').show();
+      $('#header-product-autocomplete').val('');
+    })
+
+
+    // Variation functions (in products)
     $( ".variations_form" ).on( "woocommerce_variation_select_change", function () {
       // Fires whenever variation selects are changed
       $('#single-product-placeholder').show(0);
@@ -40,16 +60,6 @@ jQuery(document).ready(function ($) {
       // and a final variation is selected / shown
       $('#single-product-placeholder').hide(0);
     } );
-    
-
-    // NOT WORKING
-    // function removeBorderBottom() {
-    //   var input = document.querySelector('input');
-
-    //   if (input.value != empty) { 
-    //     input.classList.add('active-input'); 
-    //   }
-    // }
 
 });
 
@@ -82,5 +92,3 @@ jQuery(document).ready(function ($) {
 //     header.classList.remove("sticky");
 //   }
 // }
-
-
