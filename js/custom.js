@@ -27,6 +27,7 @@ jQuery(document).ready(function ($) {
     };
 
     $('#single-product-autocomplete').easyAutocomplete(options);
+    $('#header-product-autocomplete').easyAutocomplete(options);
 
 
     $( ".variations_form" ).on( "woocommerce_variation_select_change", function () {

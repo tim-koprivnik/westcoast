@@ -61,7 +61,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<div class="search-input-holder">
 					<div class="title">Quote: </div>
-					<input type="text" placeholder="Type your suburb here">
+					<input type="text" placeholder="Type Suburb or Postcode" id="header-product-autocomplete">
 				</div>
 			
 				<div class="mobile-menu-dropdown">
@@ -92,3 +92,99 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</nav><!-- .site-navigation -->
 
 	</div><!-- #wrapper-navbar end -->
+
+	<div id="quick-select-bins">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-7">
+					<div class="steps">
+						<div class="step one active">
+							<div class="title">
+								<i class="fa fa-arrow-circle-up"></i>
+								Step 1: <strong>Suburb Selected</strong>
+							</div>
+							<div class="icon">
+								<i class="fa fa-check-circle"></i>
+							</div>
+						</div>
+						<div class="step two">
+							<div class="title">
+								<i class="fa fa-arrow-circle-down"></i>
+								Step 2: <strong>Select the skip that suits your needs</strong>
+							</div>
+							<div class="icon">
+								<i class="fa fa-check-circle"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="offset-lg-1 col-lg-4">
+					<div class="price-info">
+						All prices below reflect the price you will pay to hire a skip-bin from West Coast Waste for 7 days, delivered to your floor.
+					</div>
+				</div>
+			</div>
+			
+			<div class="select-all-bins">
+				<div class="row">
+					<div class="col-lg-9">
+						<div class="row">
+							<?php
+								$args = array(
+									'post_type' => 'product',
+									'orderby' => 'title',
+									'order' => 'ASC',
+									'product_cat' => 'Bin',
+									'posts_per_page' => 5,
+								);
+								$index = 0;
+								$loop = new WP_Query( $args );
+								while ( $loop->have_posts() ) : $loop->the_post(); 
+								global $product;
+								$index++;
+							?>
+							<div class="col-lg-4 col-md-6 col-sm-12">
+								<a href="<?php the_permalink(); ?>">
+									<div class="quick-select-bin">
+										<div class="title">
+											<?php the_title(); ?>
+										</div>
+										<div class="img">
+											<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' ); ?>
+											<img src="<?php echo $image[0]; ?>">
+										</div>
+										<div class="price">
+											<?php //echo $product->get_price_html(); ?>
+											$100
+										</div>
+										<div class="hire">
+											Up to 7 Day Hire inc. GST
+										</div>
+										<div class="meta-info">
+											<div class="info">
+												<div>
+													<img src="<?php echo get_template_directory_uri(); ?>/img/home-trailer.png" alt="home-trailer">
+												</div>
+												x <?php the_field('approx_trailer'); ?> 
+											</div>
+											<div class="info">
+												<div>
+													<img src="<?php echo get_template_directory_uri(); ?>/img/home-bin.png" alt="home-bin" width="66%;">
+												</div>
+												x <?php the_field('approx_bin'); ?> 
+											</div>
+										</div>
+										<a href="<?php the_permalink(); ?>" class="quick-button">
+											Order this skip bin
+										</a>
+									</div>
+								</a>
+							</div> <!-- .col -->
+							<?php endwhile; ?>
+							<?php wp_reset_query(); ?>
+						</div> <!-- .row -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
