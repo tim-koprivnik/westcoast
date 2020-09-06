@@ -29,20 +29,30 @@ jQuery(document).ready(function ($) {
     $('#single-product-autocomplete').easyAutocomplete(options);
     $('#header-product-autocomplete').easyAutocomplete(options);
 
+    // If search is focused, show X button, else don't
+    if ( $('#header-product-autocomplete').focus() ) {
+      $('#search-input-reset-btn').css('display', 'block');
+    } else {
+      $('#search-input-reset-btn').css('display', 'none');
+      $('.overlay-image-arrow').hide();
+    }
+
 
     // On click in easyAutocomplete dropdown, do ...
     $('.easy-autocomplete-container').on('click', function() {
       if ($('#quick-select-bins').css('display', 'none')) {
-        $('#quick-select-bins').css('display', 'block');
+        $('#quick-select-bins').show(); // or: $('#quick-select-bins').css('display', 'block');
+        // $('#quick-select-bins').addClass('active');
         $('.overlay-image-arrow').hide();
       } else {
-        $('#quick-select-bins').css('display', 'none');
+        $('#quick-select-bins').hide(); // or: $('#quick-select-bins').css('display', 'none');
+        // $('#quick-select-bins').removeClass('active');
       }
     });
 
 
     // On X click in search, do ...
-    $('#search-input-reset').on('click', function () {
+    $('#search-input-reset-btn').on('click', function () {
       $('#quick-select-bins').hide();
       $('.overlay-image-arrow').show();
       $('#header-product-autocomplete').val('');

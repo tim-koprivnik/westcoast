@@ -60,9 +60,10 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<div class="container">
 
 				<div class="search-input-holder">
-					<div class="title">Quote: </div>
-					<input type="text" placeholder="Type Suburb or Postcode" id="header-product-autocomplete"> 
-					<div id="search-input-reset">
+					<!-- <div class="title">Quote: </div> -->
+					<input type="text" placeholder="Quote: Type Suburb or Postcode" id="header-product-autocomplete">
+					<span class="vertical-line"></span> 
+					<div id="search-input-reset-btn">
 						<i class="fa fa-times"></i>
 					</div>
 				</div>
@@ -145,6 +146,22 @@ $container = get_theme_mod( 'understrap_container_type' );
 								while ( $loop->have_posts() ) : $loop->the_post(); 
 								global $product;
 								$index++;
+								$variation_html = '';
+
+								if ( $product->is_type( 'variable' ) ) {
+									$available_variations = $product->get_available_variations();
+									foreach ( $available_variations as $variations ) {
+										$attribute_depo = $variations['attributes']['attribute_depo'];
+										$attribute_distance = $variations['attributes']['attribute_distance'];
+										$price_html = $variations['price_html'];
+										$variation_html .= '<div
+																data-depo="$attribute_depo"
+																data-distance="$attribute_distance">';
+										$variation_html .= $price_html;
+										$variation_html .= '</div>';
+									}
+								}
+
 							?>
 							<div class="col-lg-4 col-md-6 col-sm-12">
 								<a href="<?php the_permalink(); ?>">
@@ -157,8 +174,8 @@ $container = get_theme_mod( 'understrap_container_type' );
 											<img src="<?php echo $image[0]; ?>">
 										</div>
 										<div class="price">
-											<?php //echo $product->get_price_html(); ?>
-											$100
+											<?php echo $product->get_price_html(); ?>
+											<?php // echo $variation_html ?>
 										</div>
 										<div class="hire">
 											Up to 7 Day Hire inc. GST

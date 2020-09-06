@@ -151,9 +151,9 @@ if ( is_front_page() ) {
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="abs-holder-button">
+                    <div class="abs-holder-button">
                         Get a quote for this skip
-                    </a>
+                    </div>
                 </div>
             </a>
             <?php endwhile; ?>

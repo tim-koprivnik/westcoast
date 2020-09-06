@@ -193,12 +193,11 @@ a {
             border: 8px solid $primary;
             border-radius: 15px;
             background: white;
-            padding: 0px 10px;
             width: 350px;
             margin-top: -30px;
             margin-bottom: -30px;
-            display: flex;
-            align-items: center;
+            // display: flex;
+            // align-items: center;
             position: relative;
             &:hover {
                 font-weight: 300;
@@ -216,27 +215,45 @@ a {
                 }
             }
             input {
-                flex: 1;
+                // flex: 1;
                 font-size: 20px;
-                padding: 20px 0px;
+                padding: 20px 10px;
                 border: none;
                 outline: none;
                 font-weight: bold;
                 color: $secondary;
+                width: 100%;
                 @media (max-width: $sm) {
                     font-size: 18px;
+                }
+                &:focus {
+                    background: rgba($primary, 0.1);
+                    font-weight: 300;
+                    &::placeholder {
+                        font-weight: 300;
+                    }
                 }
                 &::placeholder {
                     font-weight: bold;
                     color: $secondary;
+                    font-size: 20px;
                 }
             }
-            #search-input-reset {
+            .vertical-line {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 30px;
+                border-left: 1px solid rgba($secondary-200, 0.1);
+            }
+            #search-input-reset-btn {
+                position: absolute;
+                top: 22px;
+                right: 10px;
+                bottom: 0;
                 color: $secondary-200;
-                margin-left: 10px;
                 cursor: pointer;
-                height: 100%;
-                width: 100%;
+                display: none;
             }
             // dropdown (search results) of easyAutocomplete
             .easy-autocomplete-container {
@@ -245,8 +262,7 @@ a {
                 left: 0;
                 right: 0;
                 top: 66px;
-                left: -77px;
-                width: 316px;
+                width: 100%;
                 font-weight: bold;
                 color: $secondary;
                 ul {
@@ -305,24 +321,36 @@ a {
 
 // Home Page
 .home-hero-banner-top {
-    // margin-top: 100px;
     .skip-bins-holder {
         border: 4px dashed $primary;
         border-radius: 30px;
         background-color: $secondary-500;
         padding: 30px;
-        margin-top: 100px;
         position: relative;
+        @media (max-width: $lg) {
+            margin-top: 60px;
+        }
         @media (max-width: $md) {
             padding: 15px;
             border-radius: 15px;
-            margin-top: 50px;
         }
         .overlay-image-arrow {
             position: absolute;
-            top: -150px;
-            left: 330px;
+            bottom: 100%;
+            right: 25%;
             z-index: 1001;
+            width: 20%;
+            img {
+                width: 135px;
+                height: 100px;
+            }
+            @media (max-width: $xl) {
+                bottom: 105%;
+            }
+            @media (max-width: $lg) {
+                bottom: 100%;
+                right: 30%;
+            }
             @media (max-width: $md) {
                 display: none;
             }
@@ -567,6 +595,11 @@ a {
                 padding: 30px;
                 margin-bottom: 30px;
                 position: relative;
+                &:hover {
+                    transition: ease .5s all;
+                    transform: scale(1.025);
+                    box-shadow: 0px 0px 30px 0px rgba($secondary, 0.85);
+                }
                 @media (max-width: $sm) {
                     padding-left: 10px;
                     padding-right: 10px;
@@ -730,7 +763,18 @@ a {
 #quick-select-bins {
     padding-top: 30px;
     display: none;
+    // opacity: 0;
+    // max-height: 0px;
     transition: ease .5s all;
+    &.active {
+        // display: block;
+        opacity: 1;
+        max-height: 600px;
+        transition: ease .5s all;
+        @media (max-width: $lg) {
+            max-height: auto;
+        }
+    }
     .steps {
         .step {
             font-size: 24px;
@@ -740,6 +784,8 @@ a {
             border: 4px dashed $primary;
             display: flex;
             margin-top: 20px;
+            transition: ease .5s all;
+            transition-delay: .25s;
             @media (max-width: $sm) {
                 font-size: 18px;
             }
@@ -842,9 +888,6 @@ a {
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-end;
-                    img {
-                        // margin-top: 5px;
-                    }
                 }
             }
             .quick-button {
@@ -860,9 +903,6 @@ a {
                 border-top-right-radius: 15px;
             }
         }
-    }
-    &.active {
-        display: block;
     }
 }
 
@@ -1064,6 +1104,7 @@ a {
 
 .easy-autocomplete.eac-plate-dark {
     font-family: "Roboto" !important;
+    width: 100% !important;
 }
 
 
@@ -1429,8 +1470,10 @@ a {
                 // display: flex;
                 position: relative;
                 .active-input {
-                    border-bottom-left-radius: 0px;
-                    border-bottom-right-radius: 0px;
+                    &:focus {
+                        border-bottom-left-radius: 0px;
+                        border-bottom-right-radius: 0px;
+                    }
                 }
                 .fa {
                     color: $secondary;
