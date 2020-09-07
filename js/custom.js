@@ -73,6 +73,34 @@ jQuery(document).ready(function ($) {
 
 });
 
+
+
+// SWIPER JS
+var mySwiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.fa-arrow-circle-left', // .swiper-button-next
+    prevEl: '.fa-arrow-circle-right', // .swiper-button-prev
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+})
+
+
+
+// WOW JS
 // wow = new WOW(
 //     {
 //     boxClass:     'wow',      // default
@@ -83,6 +111,7 @@ jQuery(document).ready(function ($) {
 //   }
 // )
 // wow.init();
+
 
 
 // Sticky Navbar

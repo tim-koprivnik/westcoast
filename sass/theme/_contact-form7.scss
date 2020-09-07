@@ -53,6 +53,10 @@
       @extend .form-group;
     }
 
+    h3 {
+      color: black !important;
+    }
+
     input, textarea {
       color: black;
       margin-bottom: 5px;

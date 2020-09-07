@@ -43,24 +43,39 @@ if ( is_front_page() ) {
         </div>
 
         <div class="home-hero-slider">
-            <div class="slider">
-                <div class="slider-wrapper">
-                    <div class="slide">
-                        <div class="image"></div>
-                        <div class="entry-content">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/home-slider-truck-1.png" alt="" class="img">
+            <div class="slider">             
+                <div class="slide">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/slider-1.png" alt="slider-image" class="image">
+                                <div class="entry-content">
+                                    <div class="icon">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/img/home-slider-truck-1.png" alt="" class="img">
+                                    </div>
+                                    <div class="info">
+                                        We deliver the right skip bin for your residential and commercial projects.
+                                    </div>
+                                    <div class="slider-nav">
+                                        <i class="fa fa-arrow-circle-left"></i>
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="info">
-                                We deliver the right skip bin for your residential and commercial projects.
-                            </div>
-                            <div class="slider-nav">
-                                <a href="#" target="blank">
-                                    <i class="fa fa-arrow-circle-left"></i>
-                                </a>
-                                <a href="#" target="blank">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </a>
+                            <div class="swiper-slide">
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/page-placeholder.png" alt="slider-image" class="image">
+                                <div class="entry-content">
+                                    <div class="icon">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/img/home-slider-truck-1.png" alt="" class="img">
+                                    </div>
+                                    <div class="info">
+                                        Order and Pay for your Bin online between 13 Jul - 31 August 2020 to go in the draw.
+                                    </div>
+                                    <div class="slider-nav">
+                                        <i class="fa fa-arrow-circle-left"></i>
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +102,6 @@ if ( is_front_page() ) {
             </div>
         </div>
     </div>
-
     <div class="home-select-bin">
         <div class="container">
             <h2><i class="fa fa-arrow-circle-down"></i> Select the right skip bin for your project</h2>
