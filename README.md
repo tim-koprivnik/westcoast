@@ -1,2 +1,2 @@
-# WestCoast
+# westcoast
 WordPress theme
